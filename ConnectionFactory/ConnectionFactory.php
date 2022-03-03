@@ -34,7 +34,7 @@ class ConnectionFactory {
 
         function execute ($query) {
             $query->execute();
-            $this->Close ();
+            $this->close ();
             return $query;
         }
 
