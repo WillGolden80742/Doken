@@ -28,7 +28,7 @@ class ConnectionFactory {
         }
 
         function query ($sql) {
-            $query = $this->Connect()->prepare($sql);
+            $query = $this->connect()->prepare($sql);
             return $query;
         }
 
