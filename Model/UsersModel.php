@@ -59,6 +59,14 @@
             $query->bindParam(':user',$contactNickName, PDO::PARAM_STR);
             return $connection->execute($query)->fetchAll(); 
         }  
+
+        function downloadDocs (StringT $contactNickName) {
+            // Recomendado uso de prepare statement 
+            $connection = $this->conFactory;
+            $query = $connection->query("SELECT * FROM documents inner join typeDoc on  typeDoc = docId WHERE clienteId = :user");
+            $query->bindParam(':user',$contactNickName, PDO::PARAM_STR);
+            return $connection->execute($query)->fetchAll(); 
+        }  
         
   
     }

@@ -18,6 +18,17 @@
       .contacts {
         height: 90%;
       }
+
+      .header {
+        font-size:20px;
+      }
+      .menu {
+        font-size:28px;
+      }
+      .menu ul {
+        margin-left:170px;
+      }
+      
       .search {
         height:82px; 
         background-image: url("Images/search-dark.png");
@@ -60,11 +71,11 @@
     echo "<div  class=\"header\"><h2>";
     echo "<a class='logout' href='logout.php' ><img src=\"Images/logout.png\" /></a>";
     echo "<a class='back' href='index.php' ><img src=\"Images/left-arrow.png\" /></a>";    
-    echo "<span class='user' >&nbsp;".$user->name(new StringT($_SESSION['nickName']))."<a href=\"editProfile.php\"> •••</a></span></h2>";
+    echo "<span class='user' >".$user->name(new StringT($_SESSION['nickName']))."<div class=\"menu\"> •••<ul><a href=\"index.php\"><li>Pagina Inicial</li></a><a href=\"editProfile.php\"><li>Editar perfil</li></a><a href=\"documents.php\"><li>Documentos</li></a></ul></div></span></h2>";
     echo "&nbsp&nbsp<form action=\"index.php\" method=\"post\"><input class=\"search\" placeholder='Pesquisar contatos ...' type=text name=search></form>";
     $userNickName = new StringT($_SESSION['nickName']);
     echo "</div>";
-  
+    
 ?>   
 
 </body>

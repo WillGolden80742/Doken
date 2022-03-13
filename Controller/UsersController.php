@@ -74,7 +74,16 @@
             return $pic;
         }  
         
-     
+        function downloadDocs (StringT $contactNickName) {
+            $result = $this->user->downloadDocs($contactNickName);
+            if (!empty($result) > 0) {
+                return $result;
+            } else {
+                $pic = array();
+            }
+            return $pic;
+        }  
+
   
     }
 ?>

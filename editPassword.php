@@ -6,23 +6,7 @@
 <script>
 </script>    
 <style id="stylePic">
-    .profilePic {
-        background:none;
-        border:solid 3px #285d33;
-        border-radius:100%;
-        width:150px;
-        height:150px;
-        background-image: url("Images/profileMedium.png");
-        background-size: 100vw auto;
-        background-position-x:50%;
-        background-size: cover;   
-    }
-    .salvar {
-        display:none;
-    }
-    .editPic {
-        display:none;
-    }
+
     @media only screen and (max-width: 1080px) {
         .profilePic {
           width:320px;
