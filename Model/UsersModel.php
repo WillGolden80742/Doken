@@ -81,6 +81,13 @@
             $query->bindParam(':user',$contactNickName, PDO::PARAM_STR);
             return $connection->execute($query)->fetchAll(); 
         }  
+
+        function typesDoc () {
+            // Recomendado uso de prepare statement 
+            $connection = $this->conFactory;
+            $query = $connection->query("SELECT * FROM typeDoc");
+            return $connection->execute($query)->fetchAll(); 
+        }  
         
   
     }

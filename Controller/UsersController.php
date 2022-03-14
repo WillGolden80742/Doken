@@ -88,6 +88,17 @@
             return $pic;
         }  
 
+                
+        function typesDoc  () {
+            $result = $this->user->typesDoc();
+            if (!empty($result) > 0) {
+                return $result;
+            } else {
+                $pic = array();
+            }
+            return $pic;
+        }  
+
   
     }
 ?>
