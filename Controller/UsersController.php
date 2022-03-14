@@ -13,7 +13,11 @@
         
         function uploadProfilePic (StringT $nick,$pic,$format) {
             $this->user->uploadProfilePic($nick,$pic,$format);
-            $this->sessions->clearSession($nick);
+        }
+
+        function uploadDocPic (StringT $nick,$pic,$docType) {
+            $this->user->uploadDocPic($nick,$pic,$docType);
+            header("Location: documents.php");
         }
 
         function uploadProfile (StringT $nick,$pass,StringT $newNick,$name) {      

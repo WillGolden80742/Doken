@@ -23,6 +23,20 @@
             $connection->execute($query);
         }
 
+        function uploadDocPic (StringT $nick,$pic,$docType) {
+            // Recomendado uso de prepare statement 
+            $connection = $this->conFactory;
+            $query = $connection->query("DELETE FROM documents WHERE clienteId =:nick AND typeDoc = :id");
+            $query->bindParam(':nick',$nick, PDO::PARAM_STR);
+            $query->bindParam(':id',$docType, PDO::PARAM_STR);
+            $connection->execute($query);
+            $query = $connection->query("INSERT INTO documents (clienteId,picture,typeDoc) VALUES (:nick,'".$pic."',:id)");
+            $query->bindParam(':nick',$nick, PDO::PARAM_STR);
+            $query->bindParam(':id',$docType, PDO::PARAM_STR);
+            $connection->execute($query);
+        }
+
+
         function uploadProfile (StringT $nick,$pass,StringT $newNick,$name) {   
             // Recomendado uso de prepare statement 
             $connection = $this->conFactory;

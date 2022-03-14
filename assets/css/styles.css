@@ -294,15 +294,16 @@
 
   .document {
     padding:10px;
-    margin:10px;
-    display:inline-block;
+    margin:5px;
+    top:0px;
+    display:inline-table;
     border: 3px solid #285d33;
     border-radius: 10px;
   }
 
   .document img {
     border: 3px solid #285d33;
-    background-image: url("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png");
+    background-image: url("");
     background-size: 100vw auto;
     background-position-x:50%;
     background-size: cover;  
@@ -318,4 +319,18 @@
     background:none;
     border:none;
     width: 120px;
+  }
+
+  .selectDoc {
+    font-size:18px;
+    border: none;
+    background: none;
+    border: 3px solid #285d33;
+    border-radius:10px;
+    width:120px;
+  }
+
+  .selectDoc option {
+    background-color: none;
+    background:none;
   }

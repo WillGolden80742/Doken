@@ -1,2 +1,2 @@
 # Doken
- Sistema de login em PHP. Utilizando PDO
+Sistema de cadastro de documentação feito em PHP
