@@ -10,6 +10,7 @@
         function login (StringT $nick,$pass) {    
             if ($this->checkLogin (new StringT($nick),$pass)) {
                 $_SESSION['nickName'] = $nick;
+                $this->authModel->createToken();
                 header("Location: index.php");
                 die();   
             } else {
@@ -98,12 +99,12 @@
         }   
 
         function isLogged () {
-            if (empty($_SESSION['nickName'])) {
+            if ($this->authModel->checkToken()) {
+                return true;
+            } else {
                 header("Location: login.php");
                 die();
                 return false;
-            } else {
-                return true;
             }
         }
 
@@ -117,6 +118,7 @@
                     setcookie($name, '', time()-1000, '/');
                 }
             }
+            $this->authModel->deleteToken();
             header("Location: login.php");
             die();
         }

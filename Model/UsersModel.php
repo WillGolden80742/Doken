@@ -1,6 +1,5 @@
 <?php
     include 'Controller/AutenticateController.php';
-    include 'Controller/Sessions.php';
     include 'Controller/Message.php';
     class UsersModel {
         private $conFactory;
@@ -30,7 +29,7 @@
             $query->bindParam(':nick',$nick, PDO::PARAM_STR);
             $query->bindParam(':id',$docType, PDO::PARAM_STR);
             $connection->execute($query);
-            $query = $connection->query("INSERT INTO documents (clienteId,picture,typeDoc) VALUES (:nick,'".$pic."',:id)");
+            $query = $connection->query("INSERT INTO documents (clienteId,picture,hashDoc,typeDoc) VALUES (:nick,'".$pic."','".$this->auth-> encrypt($pic)."',:id)");
             $query->bindParam(':nick',$nick, PDO::PARAM_STR);
             $query->bindParam(':id',$docType, PDO::PARAM_STR);
             $connection->execute($query);

@@ -12,7 +12,7 @@
             $maxSize = 1000000;    
             if ($size < $maxSize) {   
                 $mysqlImg = addslashes(fread(fopen($name, "r"), $size));
-                $user->uploadDocPic ($_SESSION['nickName'],$mysqlImg,$_POST['id']);
+                $user->uploadDocPic (new StringT($_SESSION['nickName']),$mysqlImg,$_POST['id']);
             } 
         } 
     }

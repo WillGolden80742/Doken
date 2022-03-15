@@ -33,7 +33,35 @@
             $query =  $connection->query("SELECT * FROM clientes where nickName = :nick");
             $query->bindParam(':nick',$nick, PDO::PARAM_STR);
             return $connection->execute($query)->fetch(PDO::FETCH_ASSOC);
-        }   
-  
+        }  
+
+        function createToken() {
+            $date = new DateTime();
+            $connection = $this->conFactory;
+            $query = $connection->query("DELETE FROM token WHERE clienteId =:nick");
+            $query->bindParam(':nick',$_SESSION['nickName'], PDO::PARAM_STR);
+            $connection->execute($query);
+            $query = $connection->query("INSERT INTO token (clienteID, tokenHash) VALUES (:nick,:tokenHash)");
+            $query->bindParam(':nick',$_SESSION['nickName'], PDO::PARAM_STR);
+            $hash = hash("sha512",$_SESSION['nickName'].$date->getTimestamp(),false);
+            $_SESSION['token'] = $hash;
+            $query->bindParam(':tokenHash',$hash, PDO::PARAM_STR);
+            $connection->execute($query);
+        }
+
+        function checkToken() {
+            $connection = $this->conFactory;
+            $query =  $connection->query("SELECT * FROM token where tokenHash = :token");
+            $query->bindParam(':token',$_SESSION['token'], PDO::PARAM_STR);
+            return $connection->execute($query)->fetch(PDO::FETCH_ASSOC);
+        }
+
+        function deleteToken() {
+            $connection = $this->conFactory;
+            $query = $connection->query("DELETE FROM token WHERE clienteId =:nick");
+            $query->bindParam(':nick',$_SESSION['nickName'], PDO::PARAM_STR);
+            $connection->execute($query);
+        }
+
     }
 ?>

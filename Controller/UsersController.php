@@ -3,11 +3,9 @@
 
     class UsersController {
         private $auth;
-        private $sessions;
         function __construct() {
             $this->auth = new AutenticateController();
             $this->user = new UsersModel();
-            $this->sessions = new Sessions();
             $this->auth->isLogged();
         } 
         
