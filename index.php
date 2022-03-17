@@ -25,10 +25,6 @@
       .menu {
         font-size:28px;
       }
-      .menu ul {
-        margin-left:170px;
-      }
-      
       .search {
         height:82px; 
         background-image: url("Images/search-dark.png");

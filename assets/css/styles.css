@@ -96,6 +96,7 @@
   }
 
   .search:hover {
+    z-index:10;
     position: absolute;
     top:5px;
     margin-top: 0px;
@@ -115,6 +116,7 @@
 
 
   .inputText,.inputNick, .inputPassword, .inputSubmit {
+    backdrop-filter: blur(12px);
     background:none;
     height:35px;
     border: none;
@@ -270,7 +272,7 @@
     border-radius:10px;
     font-size:14px;
     margin-top:0;
-    margin-left:115px;
+    margin-left:0px;
     display: none;
   } 
 
@@ -279,6 +281,9 @@
   } 
 
   .menu {
+    margin-left:10px;
+    z-index: 10;
+    position: absolute;
     display: inline;
   }
 
@@ -298,11 +303,11 @@
     margin:5px;
     top:0px;
     display:inline-table;
+    backdrop-filter: blur(12px);
     border: 3px solid #285d33;
     border-radius: 10px;
     min-height:188px;
   }
- 
 
   .document img {
     border: 3px solid #285d33;

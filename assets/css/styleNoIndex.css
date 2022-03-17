@@ -1,4 +1,5 @@
 @media only screen and (max-width: 1080px) {
+
     * {
         font-size:36px;
     } 
@@ -71,5 +72,6 @@
      .editPic img, .editPass img, .editPro img {
         height:50px;
      }
+
 
   } 
