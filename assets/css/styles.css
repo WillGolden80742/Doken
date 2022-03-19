@@ -263,7 +263,7 @@
     position: relative;
     width: 100px;
     border: 3px solid #285d33;
-    background:  #002e001f;
+    background:  rgb(15, 21, 15,0.5);
     backdrop-filter: blur(12px);
     padding:0px;
     padding-top:5px;

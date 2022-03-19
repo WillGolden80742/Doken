@@ -1,4 +1,7 @@
-<?php include 'index.php' ?>
+<?php 
+    include 'index.php';
+    include 'Controller/FileController.php';
+?>
 <html>
 <head>  
 <link rel="stylesheet" href="assets/css/styleNoIndex.css">
@@ -42,20 +45,13 @@
 <?php 
     $pic=null;
     if (!empty($_FILES["pic"])) {
-        $pic=$_FILES["pic"];
-    } 
-    if($pic != NULL) {
-        $name = time().'.jpg';
-        if (move_uploaded_file($pic['tmp_name'], $name)) {
-            $size = filesize($name);     
-            $maxSize = 1000000;    
-            if ($size < $maxSize) {   
-                $mysqlImg = addslashes(fread(fopen($name, "r"), $size));
-                $user->uploadProfilePic(new StringT($_SESSION['nickName']),$mysqlImg,'jpg');
-            } else {
-                echo "<p>Tamanho máximo de ".$maxSize." bytes</p>";
-            }
-        } 
+        $fileController = new FileController($_FILES["pic"]);
+        $file = $fileController->getFile();
+        if ($file) {
+            $user->uploadProfilePic(new StringT($_SESSION['nickName']),$file,'jpg');
+        } else {
+            echo $fileController->getError();
+        }
         echo "<div ><img src='Images/edit.png' class='profilePic' style='background-image:url(".$user ->downloadProfilePic(new StringT($_SESSION['nickName'])).");' onclick='openfile();' /></div>";
     } else {
         echo "<div ><img src='Images/edit.png' class='profilePic' style='background-image:url(".$user ->downloadProfilePic(new StringT($_SESSION['nickName'])).");' onclick='openfile();' /></div>";

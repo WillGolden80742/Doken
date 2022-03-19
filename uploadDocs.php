@@ -1,19 +1,15 @@
 <?php 
     include 'Controller/UsersController.php'; 
+    include 'Controller/FileController.php';
     $user = new UsersController();
     $pic = "pic";
     if (!empty($_FILES[$pic])) {
-        $pic=$_FILES[$pic];
+        $fileController = new FileController($_FILES[$pic]);
+        $file = $fileController->getFile();
+        if ($file) {
+            $user->uploadDocPic (new StringT($_SESSION['nickName']),$file,$_POST['id']);
+        } else {
+            echo $fileController->getError();
+        }
     } 
-    if($pic != NULL) {
-        $name = time().'.jpg';
-        if (move_uploaded_file($pic['tmp_name'], $name)) {
-            $size = filesize($name);     
-            $maxSize = 1000000;    
-            if ($size < $maxSize) {   
-                $mysqlImg = addslashes(fread(fopen($name, "r"), $size));
-                $user->uploadDocPic (new StringT($_SESSION['nickName']),$mysqlImg,$_POST['id']);
-            } 
-        } 
-    }
 ?>
