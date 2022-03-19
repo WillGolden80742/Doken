@@ -89,6 +89,5 @@
             return $connection->execute($query)->fetchAll(); 
         }  
         
-  
     }
 ?>
