@@ -84,7 +84,8 @@
         function typesDoc () {
             // Recomendado uso de prepare statement 
             $connection = $this->conFactory;
-            $query = $connection->query("SELECT * FROM typeDoc");
+            $query = $connection->query("SELECT * FROM `typeDoc` EXCEPT SELECT docId, type FROM typeDoc INNER JOIN documents ON documents.typeDoc = typeDoc.docId INNER JOIN clientes ON clientes.nickName = documents.clienteId WHERE clientes.nickName = :user");
+            $query->bindParam(':user',$_SESSION['nickName'], PDO::PARAM_STR);
             return $connection->execute($query)->fetchAll(); 
         }  
         

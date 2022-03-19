@@ -21,18 +21,18 @@
         $documents.="</div>";
     }
     echo "</style>";
-
-    $documents.="<div class='document documentNew'><center><img src='Images/edit.png'/ id='doc' onclick=\"openfile('New');\" ></center>";
-    $documents.="</br>";
-    $documents.="<form action=\"uploadDocs.php?\" method=\"post\" enctype=\"multipart/form-data\">";
-    $documents.="<select class=\"selectDoc\" name=\"id\">";
     $typesDoc = $user->typesDoc();
-    foreach($typesDoc as $value) {
-        $documents.="<option value=\"".$value["docId"]."\">".$value["type"]."</option>";
+    if (sizeof($typesDoc) > 0) {
+        $documents.="<div class='document documentNew'><center><img src='Images/edit.png'/ id='doc' onclick=\"openfile('New');\" ></center>";
+        $documents.="</br>";
+        $documents.="<form action=\"uploadDocs.php?\" method=\"post\" enctype=\"multipart/form-data\">";
+        $documents.="<select class=\"selectDoc\" name=\"id\">"; 
+        foreach($typesDoc as $value) {
+            $documents.="<option value=\"".$value["docId"]."\">".$value["type"]."</option>";
+        }
+        $documents.="</select>";
+        $documents.="<input id=\"editProfilePicNew\" accept=\".jpeg,.jpg,.png\" onchange=\"display('New');\" style=\"display:none;\" id=\"editProfile\" type=\"file\" name=\"pic\"> <input class=\"inputSubmit salvarNew\" type=submit value=\"ENVIAR\"> </form> ";
+        $documents.="</div>";
     }
-    $documents.="</select>";
-    $documents.="<input id=\"editProfilePicNew\" accept=\".jpeg,.jpg,.png\" onchange=\"display('New');\" style=\"display:none;\" id=\"editProfile\" type=\"file\" name=\"pic\"> <input class=\"inputSubmit salvarNew\" type=submit value=\"ENVIAR\"> </form> ";
-    $documents.="</div>";
-
     echo $documents;
 ?>
