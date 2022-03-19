@@ -13,7 +13,7 @@
             if (!file_exists("tmp")) {
                 mkdir("tmp");
             }
-            $name = "tmp/".time().'.jpg';
+            $name = "tmp/".md5(rand()).time().'.jpg';
             if (move_uploaded_file($this->file['tmp_name'], $name)) {
                 $size = filesize($name);      
                 if ($size < $this->maxSize) {   
