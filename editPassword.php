@@ -58,10 +58,10 @@
 <a href="editProfile.php" class="editPro"><img src="Images/nameMediumIcon-dark.png"></a>
 <?php
     if (!empty($_GET['error'])) {
-        echo "<center><h3 style=\"color:red;\">".$_GET['error']."</h3></center>";
+        echo "<center class='statusMsg'><h3 style=\"color:red;\">".$_GET['error']."</h3></center>";
     }
     if (!empty($_GET['message'])) {
-        echo "<center><h3 style=\"color:green;\">".$_GET['message']."</h3></center>";
+        echo "<center class='statusMsg'><h3 style=\"color:green;\">".$_GET['message']."</h3></center>";
     }
 ?>
 </center>   

@@ -14,7 +14,7 @@
                 header("Location: index.php");
                 die();   
             } else {
-                echo "<center><h3 style=\"color:red;\"> nickname ou senha incorreta </h3></center>";
+                echo "<center class='statusMsg'><h3 style=\"color:red;\"> nickname ou senha incorreta </h3></center>";
             }
         }
 
@@ -37,7 +37,7 @@
                     $this->login(new StringT($nick),$pass);
                 } 
             } else {
-                $error = "<center><h3 style=\"color:red;\">";
+                $error = "<center class='statusMsg'><h3 style=\"color:red;\">";
                 $error.=$nameCertification[1];
                 $error.=$nickCertification[1];
                 $error.=$passCertification[1];

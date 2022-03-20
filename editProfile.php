@@ -7,17 +7,6 @@
 <link rel="stylesheet" href="assets/css/styleNoIndex.css">
 </head>     
 <style id="stylePic">
-    .profilePic {
-        background:none;
-        border:solid 3px #285d33;
-        border-radius:100%;
-        width:150px;
-        height:150px;
-        background-image: url("Images/profileMedium.png");
-        background-size: 100vw auto;
-        background-position-x:50%;
-        background-size: cover;   
-    }
     .salvar, .editPic{
         display:none;
     }
@@ -70,10 +59,10 @@
 <a href="editPassword.php" class="editPass"><img src="Images/passwordMediumIcon-dark.png"></a>
 <?php
     if (!empty($_GET['error'])) {
-        echo "<center><h3 style=\"color:red;\">".$_GET['error']."</h3></center>";
+        echo "<center class='statusMsg'><h3 style=\"color:red;\">".$_GET['error']."</h3></center>";
     }
     if (!empty($_GET['message'])) {
-        echo "<center><h3 style=\"color:green;\">".$_GET['message']."</h3></center>";
+        echo "<center class='statusMsg'><h3 style=\"color:green;\">".$_GET['message']."</h3></center>";
     }
 ?>
 </center>   
