@@ -7,8 +7,16 @@
             $this->auth = new AutenticateController();
             $this->user = new UsersModel();
             $this->auth->isLogged();
+            $this->index ();
         } 
         
+        function index () {
+            $url = explode("/", $_SERVER['REQUEST_URI']);
+            if(strcmp($url[sizeof($url)-1],"index.php") == 0) {
+              header("Location: documents.php");
+            }
+        }
+
         function uploadProfilePic (StringT $nick,$pic,$format) {
             $this->user->uploadProfilePic($nick,$pic,$format);
         }
