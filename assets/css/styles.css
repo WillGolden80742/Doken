@@ -2,6 +2,7 @@
     text-decoration:none;
     color:#4388b9;
   }
+  
   * {
     font-family: Arial, Helvetica, sans-serif;
     text-shadow:0px 0px 5px rgb(0 0 0);
@@ -221,12 +222,7 @@
 
   .send {
     border: 3px solid rgba(0,0,0,0);
-  } 
-
-
-  .back, .header, .logout, .messages, .picMessage img , .text, .send, .contacts a h2, .user, .contacts, .search, .profilePic, .inputSubmit, .inputPassword, .inputText, .inputNick {
-
-  }
+  }   
 
   .search  {
     width: 40px;

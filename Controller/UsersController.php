@@ -12,7 +12,7 @@
         
         function index () {
             $url = explode("/", $_SERVER['REQUEST_URI']);
-            if(strcmp($url[sizeof($url)-1],"index.php") == 0) {
+            if(strcmp($url[sizeof($url)-1],"index.php") == 0 || strcmp($_SERVER['REQUEST_URI'],"/Doken/") == 0) {
               header("Location: documents.php");
             }
         }
