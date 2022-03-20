@@ -351,6 +351,7 @@
     background: linear-gradient(#2b5278 , #0e1621);
     background-image: url("../../Images/back.png");
     background-size: 100%;
+    background-repeat: repeat;
   }
   
   .statusMsg h3 {
