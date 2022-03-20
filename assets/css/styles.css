@@ -5,6 +5,8 @@
   * {
     font-family: Arial, Helvetica, sans-serif;
     text-shadow:0px 0px 5px rgb(0 0 0);
+    transition:0.125s; 
+    animation-delay: 0.25s;
   }
 
   .from {
@@ -200,6 +202,19 @@
   .editPass img, .editPro img {
     height:18px;
   }
+
+  .editPass img, .editPro img {
+    padding:5px; 
+    border-radius:10px;
+    border: 3px solid #4388b9;
+    box-shadow: inset 0px 10px 10px 0px rgb(0 0 0 / 35%);
+  }
+
+  .editPass img:hover, .editPro img:hover {
+    background: #4388b9;
+    box-shadow:none;
+  }
+  
   .contacts, .messages, .text, .msg{
       border: 3px solid #4388b9;
   }
@@ -210,8 +225,7 @@
 
 
   .back, .header, .logout, .messages, .picMessage img , .text, .send, .contacts a h2, .user, .contacts, .search, .profilePic, .inputSubmit, .inputPassword, .inputText, .inputNick {
-    transition:0.125s; 
-    animation-delay: 0.25s;
+
   }
 
   .search  {
